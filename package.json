@@ -1,0 +1,35 @@
+{
+  "name": "challenge",
+  "version": "5.0.0",
+  "private": true,
+  "scripts": {
+    "dev": "next dev",
+    "build": "next build",
+    "start": "next start",
+    "lint": "next lint"
+  },
+  "dependencies": {
+    "@emotion/cache": "latest",
+    "@emotion/react": "latest",
+    "@emotion/server": "latest",
+    "@emotion/styled": "latest",
+    "@mui/icons-material": "latest",
+    "@mui/material": "latest",
+    "@reduxjs/toolkit": "^1.8.3",
+    "jss-rtl": "^0.3.0",
+    "next": "latest",
+    "next-redux-wrapper": "^7.0.5",
+    "react": "latest",
+    "react-dom": "latest",
+    "react-redux": "^8.0.2",
+    "stylis": "^4.1.1",
+    "stylis-plugin-rtl": "^2.1.1"
+  },
+  "devDependencies": {
+    "@types/node": "latest",
+    "@types/react": "latest",
+    "eslint": "latest",
+    "eslint-config-next": "latest",
+    "typescript": "latest"
+  }
+}
