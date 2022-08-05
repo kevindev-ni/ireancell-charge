@@ -7,9 +7,9 @@ import CssBaseline from '@mui/material/CssBaseline';
 import { CacheProvider, EmotionCache } from '@emotion/react';
 import theme from '../src/theme/theme';
 import createEmotionCache from '../src/createEmotionCache';
-import DirectionLayout from "../src/layout/Direction";
-import {getDirection} from "../src/localization/direction";
+import DirectionLayout from "../src/layouts/Direction";
 const clientSideEmotionCache = createEmotionCache();
+import '../styles/global.css'
 
 interface MyAppProps extends AppProps {
   emotionCache?: EmotionCache;
