@@ -33,9 +33,7 @@ const About: NextPage = () => {
           <Button variant="contained"  component={Link} noLinkStyle href="/">
             Go to the home page
           </Button>
-            <Button variant="contained" onClick={() => dispatch(changeLang('en'))} >
-                Go to en
-            </Button>
+
             <Button variant="contained" onClick={() => dispatch(changeLang('fa'))} >
                 Go to fa
             </Button>

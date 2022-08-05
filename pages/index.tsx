@@ -9,32 +9,23 @@ import Copyright from '../src/Copyright';
 import {TextField} from "@mui/material";
 import {useSelector} from "react-redux";
 import {selectCounterState} from "../src/redux/store/counterSlice";
+import AppContainer from "../src/layouts/AppContainer";
 
 const Home: NextPage = () => {
     const a = useSelector(selectCounterState)
     console.log('a', a)
   return (
-    <Container maxWidth="lg">
-      <Box
-        sx={{
-          my: 4,
-          display: 'flex',
-          flexDirection: 'column',
-          justifyContent: 'center',
-          alignItems: 'center',
-        }}
-      >
-        <Typography variant="h4" component="h1" gutterBottom>
-          MUI v5 + Next.js with TypeScript example
-        </Typography>
-        <Link href="/about" color="secondary">
-          Go to the about page
-        </Link>
-          <TextField  placeholder={'tes'} label={'kabnle'} />
-        <ProTip />
-        <Copyright />
-      </Box>
-    </Container>
+      <AppContainer>
+            <div className={'flex justify-center'}>
+
+                <br/>
+                <br/>
+                <br/>
+                <br/>
+                3213
+            </div>
+      </AppContainer>
+
   );
 };
 
