@@ -1,26 +1,14 @@
 import * as React from 'react';
-import type { NextPage } from 'next';
-import AppContainer from "../src/layouts/AppContainer";
-import {useRouter} from "next/router";
-import useTranslation from "next-translate/useTranslation";
+import type {NextPage} from 'next';
+import AppContainer from '../src/layouts/AppContainer';
+import ChargeContainer from '../src/components/chage-container/index';
 
 const Home: NextPage = () => {
-    const {t} = useTranslation('common')
-    const router = useRouter()
-    console.log('lang local', router.locale)
-  return (
-      <AppContainer>
-            <div className={'flex justify-center'}>
-
-                <br/>
-                <br/>
-                <br/>
-                <br/>
-                {t('title')}
-            </div>
-      </AppContainer>
-
-  );
+    return (
+        <AppContainer>
+            <ChargeContainer/>
+        </AppContainer>
+    );
 };
 
 export default Home;

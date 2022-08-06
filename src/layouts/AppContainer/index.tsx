@@ -7,7 +7,7 @@ const AppContainer = (props: AppContainerProps) => {
     return (
         <>
             <Header />
-            <Container>
+            <Container className={'w-full h-full'}>
                 {props.children}
             </Container>
         </>

@@ -18,9 +18,12 @@ const Header = () => {
         router.push('/', '/', {locale: locate})
     }
     return (
-        <AppBar color={"primary"} component={"nav"}>
+        <AppBar className={'block'} color={"primary"} component={"nav"}>
             <Toolbar className={'p-0 block'}>
-                <Box className={clsx('flex w-full justify-between items-center', { ['pr-5'] : locate === 'FA' })}>
+                <Box className={clsx('flex w-full justify-between items-center', {
+                    ['pl-5']: locate === 'FA',
+                    ['pr-5']: locate === 'EN'
+                })}>
                     <Typography className={'vazir-med'}>
                         {t('brandName')}
                     </Typography>
