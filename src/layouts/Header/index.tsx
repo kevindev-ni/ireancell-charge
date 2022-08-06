@@ -1,5 +1,6 @@
 import React from 'react';
-import {AppBar, Box, Toolbar, Button} from "@mui/material";
+import {AppBar, Box, Toolbar, Button, Typography, IconButton} from "@mui/material";
+import LanguageIconIcon from '@mui/icons-material/Language';
 import {useDispatch, useSelector} from "react-redux";
 import {changeLang, selectLocalState} from "../../redux/store/langSlice";
 
@@ -8,14 +9,14 @@ const Header = () => {
     const {lang} = useSelector(selectLocalState)
     return (
         <AppBar color={"primary"} component={"nav"}>
-            <Toolbar className={'w-full'}>
-                <Box className={'flex w-full justify-between '}>
-                    <Box>
+            <Toolbar className={'p-0'}>
+                <Box className={'flex w-full justify-between items-center'}>
+                    <Typography className={'vazir-med'}>
                         ایرانسل
-                    </Box>
-                    <Box className={'bg-red-500'}>
-                        <Button variant="contained" onClick={() => dispatch(changeLang('en'))} >
-                            Go to en
+                    </Typography>
+                    <Box onClick={() => dispatch(changeLang('EN'))} className={'bg-black p-0 h-[80px] flex items-center justify-center p-c0 m-0 w-[200px]'}>
+                        <Button startIcon={<LanguageIconIcon color={'primary'}/>} size={'small'} className={'text-sm'}>
+                            {lang}
                         </Button>
                     </Box>
                 </Box>

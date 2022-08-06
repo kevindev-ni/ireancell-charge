@@ -1,0 +1,7 @@
+@font-face {
+    font-family: Vazr-Meduim;
+    src: url('Vazir-Black-FD.ttf') format('woff');
+}
+.vazir-med {
+    font-family: Vazr-Meduim;
+}

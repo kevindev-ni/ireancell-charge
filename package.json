@@ -16,6 +16,7 @@
     "@mui/icons-material": "latest",
     "@mui/material": "latest",
     "@reduxjs/toolkit": "^1.8.3",
+    "clsx": "^1.2.1",
     "jss-rtl": "^0.3.0",
     "next": "latest",
     "next-redux-wrapper": "^7.0.5",
