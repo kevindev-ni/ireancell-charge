@@ -9,12 +9,12 @@ const Header = () => {
     const {lang} = useSelector(selectLocalState)
     return (
         <AppBar color={"primary"} component={"nav"}>
-            <Toolbar className={'p-0'}>
-                <Box className={'flex w-full justify-between items-center'}>
+            <Toolbar className={'p-0 block'}>
+                <Box className={'flex pr-5 w-full justify-between items-center'}>
                     <Typography className={'vazir-med'}>
                         ایرانسل
                     </Typography>
-                    <Box onClick={() => dispatch(changeLang('EN'))} className={'bg-black p-0 h-[80px] flex items-center justify-center p-c0 m-0 w-[200px]'}>
+                    <Box onClick={() => dispatch(changeLang('EN'))} className={'bg-black h-[80px] flex items-center justify-center p-c0 m-0 w-[200px]'}>
                         <Button startIcon={<LanguageIconIcon color={'primary'}/>} size={'small'} className={'text-sm'}>
                             {lang}
                         </Button>
