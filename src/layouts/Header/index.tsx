@@ -4,23 +4,25 @@ import LanguageIconIcon from '@mui/icons-material/Language';
 import {useDispatch, useSelector} from "react-redux";
 import {changeLang, selectLocalState} from "../../redux/store/langSlice";
 import {useRouter} from "next/router";
-import Link from "next/link";
+import useTranslation from "next-translate/useTranslation";
+import clsx from "clsx";
 
 const Header = () => {
     const dispatch = useDispatch()
-    const router = useRouter()
     const {lang} = useSelector(selectLocalState)
-    const handleLocate = router.locale === 'EN' ? 'FA' : 'EN'
+    const {t} = useTranslation('common')
+    const router = useRouter()
+    const locate : string = router.locale === 'EN' ? 'FA' : 'EN'
     const HandleLocale = () => {
-        dispatch(changeLang(handleLocate))
-        router.push('/', '/', {locale: handleLocate})
+        dispatch(changeLang(locate))
+        router.push('/', '/', {locale: locate})
     }
     return (
         <AppBar color={"primary"} component={"nav"}>
             <Toolbar className={'p-0 block'}>
-                <Box className={'flex pr-5 w-full justify-between items-center'}>
+                <Box className={clsx('flex w-full justify-between items-center', { ['pr-5'] : locate === 'FA' })}>
                     <Typography className={'vazir-med'}>
-                        ایرانسل
+                        {t('brandName')}
                     </Typography>
                     <Box onClick={HandleLocale}
                          className={'bg-black h-[80px] flex items-center justify-center p-c0 m-0 w-[200px]'}>
