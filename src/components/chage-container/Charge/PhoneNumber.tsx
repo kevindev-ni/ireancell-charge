@@ -1,10 +1,10 @@
 import React from 'react';
-import {TextField} from '@mui/material';
+import { TextField } from '@mui/material';
 
 const PhoneNumber = () => {
     return (
         <div>
-            <TextField id="outlined-basic" label="Outlined" variant="outlined" />
+            <TextField  fullWidth className={'mt-5'} inputMode={'numeric'}  label="شماره تلفن همراه" variant="outlined"/>
         </div>
     );
 };

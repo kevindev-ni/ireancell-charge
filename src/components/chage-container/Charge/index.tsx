@@ -1,11 +1,12 @@
 import React, {useState} from 'react';
-import {Box, Switch, Typography} from '@mui/material';
+import {Box, Typography} from '@mui/material';
 import clsx from "clsx";
 import SwitchToSpecial from "./SwitchToSpecial";
+import PhoneNumber from "./PhoneNumber";
+import PriceCharge from "./PriceCharge";
 
 const Charge = () => {
     const [simType, setSimType] = useState<number>(0)
-
 
 
     return (
@@ -31,7 +32,9 @@ const Charge = () => {
                         دائمی
                     </button>
                 </Box>
-             <SwitchToSpecial />
+                <SwitchToSpecial />
+                <PhoneNumber />
+                <PriceCharge />
             </Box>
         </Box>
     );

@@ -9,13 +9,13 @@ const Index = () => {
 
     return (
         <div>
-            <Card className={'shadow-lg rounded-[15px]'} sx={{minWidth: 275, mt: 50}}>
+            <Card className={'shadow-charge-container rounded-[15px]'} sx={{minWidth: 275, mt: 50}}>
                 <CardContent>
                     <Grid container>
-                        <Grid item lg={6}>
+                        <Grid item md={12} lg={6}>
                           <Charge />
                         </Grid>
-                        <Grid item lg={6}>
+                        <Grid item md={12} lg={6}>
                             <Invoice />
                         </Grid>
                     </Grid>
