@@ -24,7 +24,7 @@ const Header = () => {
                     ['pl-5']: locate === 'FA',
                     ['pr-5']: locate === 'EN'
                 })}>
-                    <Typography className={'vazir-med'}>
+                    <Typography>
                         {t('brandName')}
                     </Typography>
                     <Box onClick={HandleLocale}

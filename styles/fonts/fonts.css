@@ -1,10 +1,20 @@
 @font-face {
-    font-family: Vazr-Meduim;
+    font-family: Vazir-Bold;
     src: url('Vazir-Black-FD.ttf') format('woff');
 }
-.vazir-med {
-    font-family: Vazr-Meduim;
+@font-face {
+    font-family: Vazir-req;
+    src: url('Vazir-Regular-FD.ttf');
 }
-body p,h1,h2,h3,h4,h5,span, input {
-    font-family: Vazr-Meduim !important;
+.vazir-bold {
+    font-family: Vazir-Bold;
+}
+.vazir-req {
+    font-family: Vazir-req !important;
+}
+.fa-font *{
+    font-family: Vazir-Bold;
+}
+.en-font * {
+    font-family: Righteous !important;
 }
