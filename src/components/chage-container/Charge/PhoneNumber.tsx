@@ -1,9 +1,11 @@
 import React from 'react';
 import { TextField } from '@mui/material';
+import {useCharge} from '../../../hooks/useCharge';
 
 const PhoneNumber = () => {
+    const {setPhoneNumber} = useCharge()
     return (
-        <TextField  className={'mt-5 w-6/12'} inputMode={'numeric'}  label="شماره تلفن همراه" variant="outlined"/>
+        <TextField onChange={(e) => setPhoneNumber(e.target.value)} className={'mt-5 w-6/12'} inputMode={'numeric'}  label="شماره تلفن همراه" variant="outlined"/>
     );
 };
 

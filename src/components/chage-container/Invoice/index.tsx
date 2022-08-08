@@ -1,8 +1,10 @@
 import React from 'react';
-import {Box, List, ListItem, Typography} from "@mui/material";
+import {Box, List, ListItem, Typography} from '@mui/material';
 import CircleIcon from '@mui/icons-material/Circle';
+import {useCharge} from '../../../hooks/useCharge';
 
 const Invoice = () => {
+    const {simCardType, phoneNumber} = useCharge()
     return (
        <Box>
            <Box className={'bg-[#f0eff5] rounded-[8px] p-5 h-full'}>
@@ -13,11 +15,13 @@ const Invoice = () => {
                    <List>
                        <ListItem className={'flex flex-col items-start mb-3 mr-3'}>
                            <Typography className={'text-[14px] vazir-req text-light-gray text-light'}>نوع سیم کارت </Typography>
-                           <Typography className={'mt-3 '}> اعتباری  </Typography>
+                           <Typography className={'mt-3 '}>
+                               {simCardType === 0 ? 'اعتباری' : 'دائمی'}
+                           </Typography>
                        </ListItem>
                        <ListItem className={'flex flex-col items-start mb-3 mr-3'}>
                            <Typography className={'text-[14px] vazir-req text-light-gray text-light'}>مستقیم به شماره </Typography>
-                           <Typography className={'mt-3 '}> اعتباری  </Typography>
+                           <Typography className={'mt-3 '}>  {phoneNumber} </Typography>
                        </ListItem>
                        <ListItem className={'flex flex-col items-start mb-3 mr-3'}>
                            <Typography className={'text-[14px] vazir-req text-light-gray text-light'}>مبلغ شارژ (با احتساب مالیات بر ارزش افزوده)</Typography>

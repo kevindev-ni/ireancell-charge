@@ -1,25 +1,26 @@
 import React, {useState} from 'react';
 import {Box, Typography} from '@mui/material';
 import clsx from 'clsx';
+import {useCharge} from '../../../hooks/useCharge';
 
 const ChargeType = () => {
-    const [simType, setSimType] = useState<number>(0)
-
+    const {simCardType, setSimCardType} = useCharge()
     return (
         <Box className={'mt-5 w-4/12'}>
+            {simCardType}
             <Typography className={'text-center mb-2 text-[#8b8b8d] text-sm vazir-req'}> نوع سیم کارت</Typography>
             <Box className={'flex justify-between items-center  border-[1px] rounded-[25px] border-[#e6e6e8]'}>
                 <button
-                    onClick={() => setSimType(0)}
+                    onClick={() => setSimCardType(0)}
                     className={clsx('text-center w-full px-[7px] py-[7px] ',
-                        {['rounded-[25px] bg-primary p-1 ']: simType === 0})}
+                        {['rounded-[25px] bg-primary p-1 ']: simCardType === 0})}
                 >
                     اعتباری
                 </button>
                 <button
-                    onClick={() => setSimType(1)}
+                    onClick={() => setSimCardType(1)}
                     className={clsx('text-center w-full px-[7px] py-[7px] ',
-                        {['rounded-[25px] bg-primary p-1']: simType === 1})}
+                        {['rounded-[25px] bg-primary p-1']: simCardType === 1})}
                 >
                     دائمی
                 </button>

@@ -13,7 +13,7 @@ const defaultProvider: ChargeValuesType = {
     setChargeType: () => null,
     phoneNumber: null,
     setPhoneNumber: () => null,
-    simCardType: null,
+    simCardType: 0,
     setSimCardType: () => null
 }
 
@@ -48,3 +48,5 @@ const ChargeProvider = ({children}: Props) => {
 
     return <ChargeContext.Provider value={values}>{children}</ChargeContext.Provider>
 }
+
+export {ChargeProvider, ChargeContext}

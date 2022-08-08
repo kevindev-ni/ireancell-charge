@@ -11,6 +11,4 @@ export type ChargeValuesType = {
     setEmail: (value: string) => void
     loading: boolean,
     setLoading: (value: boolean) => void
-
-
 }
