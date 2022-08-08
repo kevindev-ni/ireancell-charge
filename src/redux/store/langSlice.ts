@@ -10,7 +10,7 @@ export interface LangState {
 
 
 const initialState: LangState = {
-    lang: 'fa',
+    lang: 'FA',
     directions: 'rtl'
 }
 
@@ -20,11 +20,11 @@ export const localizationSlice = createSlice({
     reducers : {
         changeLang (state, action: {payload: string}) {
             console.log('action', action.payload)
-            if (action.payload === 'en') {
-                state.lang = 'en'
+            if (action.payload === 'EN') {
+                state.lang = 'EN'
                 state.directions = 'ltr'
             } else {
-                state.lang = 'fa'
+                state.lang = 'FA'
                 state.directions = 'rtl'
             }
 

@@ -1,0 +1,48 @@
+.bg-primary {
+    background-color: #ffcc00 !important;
+}
+.text-light-gray {
+    color: #96949b !important;
+}
+html, body {
+    margin: 0;
+    height: 100%;
+
+}
+#__next {
+    height: 100%;
+
+}
+
+.shadow-charge-container {
+    box-shadow: 0 0 19px -7px rgb(0 0 0 / 25%);
+}
+.MuiOutlinedInput-notchedOutline {
+    border: none;
+}
+.MuiInputBase-input {
+    border: 1px solid #DDE;
+    background-color: #efeff4;
+    border-radius: 30px;
+    padding: 17px;
+}
+.MuiInputLabel-root.Mui-focused {
+    color: #a3a3a3;
+}
+.MuiInputLabel-root {
+    color: #a3a3a3;
+}
+.price-chip {
+    background-color: #f0eff5;
+    width: 100%;
+    border-radius: 25px;
+    padding-top: 5px;
+    padding-bottom: 5px;
+    margin-bottom: 10px;
+}
+.cash-circle {
+    background-color: rgb(15, 175, 75);
+    width: 12.5px;
+    height: 12.5px;
+    border-radius: 50%;
+}

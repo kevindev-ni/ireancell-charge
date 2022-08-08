@@ -1,0 +1,20 @@
+@font-face {
+    font-family: Vazir-Bold;
+    src: url('Vazir-Black-FD.ttf') format('woff');
+}
+@font-face {
+    font-family: Vazir-req;
+    src: url('Vazir-Regular-FD.ttf');
+}
+.vazir-bold {
+    font-family: Vazir-Bold;
+}
+.vazir-req {
+    font-family: Vazir-req !important;
+}
+.fa-font *{
+    font-family: Vazir-Bold;
+}
+.en-font * {
+    font-family: Righteous !important;
+}
