@@ -2,9 +2,10 @@ import React from 'react';
 import {Box, List, ListItem, Typography} from '@mui/material';
 import CircleIcon from '@mui/icons-material/Circle';
 import {useCharge} from '../../../hooks/useCharge';
+import NumberFormat from 'react-number-format';
 
 const Invoice = () => {
-    const {simCardType, phoneNumber} = useCharge()
+    const {simCardType, phoneNumber, isSpecial, price, email} = useCharge()
     return (
        <Box>
            <Box className={'bg-[#f0eff5] rounded-[8px] p-5 h-full'}>
@@ -21,23 +22,29 @@ const Invoice = () => {
                        </ListItem>
                        <ListItem className={'flex flex-col items-start mb-3 mr-3'}>
                            <Typography className={'text-[14px] vazir-req text-light-gray text-light'}>مستقیم به شماره </Typography>
-                           <Typography className={'mt-3 '}>  {phoneNumber} </Typography>
+                           <Typography className={'mt-3'}>  {phoneNumber === null ? '---' : phoneNumber} </Typography>
                        </ListItem>
                        <ListItem className={'flex flex-col items-start mb-3 mr-3'}>
                            <Typography className={'text-[14px] vazir-req text-light-gray text-light'}>مبلغ شارژ (با احتساب مالیات بر ارزش افزوده)</Typography>
-                           <Typography className={'mt-3 '}> اعتباری  </Typography>
+                           <Typography className={'mt-3'}>
+                               <NumberFormat
+                                   thousandSeparator={true}
+                                   displayType={'text'}
+                                   value={price + price * 9 /100}
+                               />
+                           </Typography>
                        </ListItem>
                        <ListItem className={'flex flex-col items-start mb-3 mr-3'}>
                            <Typography className={'text-[14px] vazir-req text-light-gray text-light'}>پاداش خرید  </Typography>
-                           <Typography className={'mt-3 '}> اعتباری  </Typography>
+                           <Typography className={'mt-3 '}> { price / 100}  </Typography>
                        </ListItem>
                        <ListItem className={'flex flex-col items-start mb-3 mr-3'}>
-                           <Typography className={'text-[14px] vazir-req text-light-gray text-light'}> نو شارژ  </Typography>
-                           <Typography className={'mt-3'}> اعتباری  </Typography>
+                           <Typography className={'text-[14px] vazir-req text-light-gray text-light'}> نوع شارژ  </Typography>
+                           <Typography className={'mt-3'}> {isSpecial ? 'شگفت انگیز' : 'معمولی'}  </Typography>
                        </ListItem>
                        <ListItem className={'flex flex-col items-start mb-3 mr-3'}>
                            <Typography className={'text-[14px] vazir-req text-light-gray text-light'}> ایمیل   </Typography>
-                           <Typography className={'mt-3'}> اعتباری  </Typography>
+                           <Typography className={'mt-3'}>{email}</Typography>
                        </ListItem>
                        <ListItem className={'flex flex-col items-start mr-3'}>
                            <Typography className={'text-[14px] vazir-req text-light-gray text-light'}> نام بامک   </Typography>

@@ -3,11 +3,11 @@ import {ChargeValuesType} from './types';
 
 
 const defaultProvider: ChargeValuesType = {
-    loading: true,
-    setLoading: () => Boolean,
+    isSpecial: false,
+    setSpecial: () => Boolean,
     email: null,
     setEmail: () => null,
-    price: null,
+    price: 0,
     setPrice: () => null,
     chargeType: 0,
     setChargeType: () => null,
@@ -27,13 +27,13 @@ const ChargeProvider = ({children}: Props) => {
     const [simCardType, setSimCardType] = useState<number | null>(defaultProvider.simCardType)
     const [chargeType, setChargeType] = useState<number | null>(defaultProvider.chargeType)
     const [phoneNumber, setPhoneNumber] = useState<string | null>(defaultProvider.phoneNumber)
-    const [price, setPrice] = useState<number | null>(defaultProvider.price)
+    const [price, setPrice] = useState<number>(defaultProvider.price)
     const [email, setEmail] = useState<string | null>(defaultProvider.email)
-    const [loading, setLoading] = useState<boolean>(defaultProvider.loading)
+    const [isSpecial, setSpecial] = useState<boolean>(defaultProvider.isSpecial)
 
     const values = {
-        loading,
-        setLoading,
+        isSpecial,
+        setSpecial,
         email,
         setEmail,
         price,

@@ -7,8 +7,7 @@ const ChargeType = () => {
     const {simCardType, setSimCardType} = useCharge()
     return (
         <Box className={'mt-5 w-4/12'}>
-            {simCardType}
-            <Typography className={'text-center mb-2 text-[#8b8b8d] text-sm vazir-req'}> نوع سیم کارت</Typography>
+            <Typography className={'text-center mb-3 text-[#8b8b8d] text-sm vazir-req'}> نوع سیم کارت</Typography>
             <Box className={'flex justify-between items-center  border-[1px] rounded-[25px] border-[#e6e6e8]'}>
                 <button
                     onClick={() => setSimCardType(0)}

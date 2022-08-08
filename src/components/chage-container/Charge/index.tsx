@@ -5,17 +5,19 @@ import SwitchToSpecial from "./SwitchToSpecial";
 import PhoneNumber from "./PhoneNumber";
 import PriceCharge from "./PriceCharge";
 import ChargeType from "./ChargeType";
+import {useCharge} from "../../../hooks/useCharge";
+import EmailAddress from "./EmailAddress";
 
 const Charge = () => {
     return (
         <Box className={'flex flex-col items-center justify-center w-full'}>
-            <Box><Typography variant={'h6'}>خرید آنلاین شارژ ایرانسل </Typography></Box>
+            <Typography variant={'h6'}>خرید آنلاین شارژ ایرانسل </Typography>
             <ChargeType />
             <SwitchToSpecial />
             <PhoneNumber />
             <PriceCharge />
+            <EmailAddress />
             {/*email*/}
-            <TextField fullWidth className={'mt-5 w-6/12'} inputMode={'email'}  label="ایمیل (اخنیاری)  " variant="outlined"/>
             <Button variant={'contained'} className={'bg-primary w-6/12 mt-5 px-[20px] py-[10px] rounded-[25px]'} fullWidth>انتخاب بانک و پرداخت</Button>
         </Box>
     );

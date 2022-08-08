@@ -5,10 +5,10 @@ export type ChargeValuesType = {
     setChargeType: (value: number) => void
     phoneNumber: string | null,
     setPhoneNumber: (value: string) => void
-    price: number | null,
+    price: number,
     setPrice: (value: number) => void
     email: string | null,
     setEmail: (value: string) => void
-    loading: boolean,
-    setLoading: (value: boolean) => void
+    isSpecial: boolean,
+    setSpecial: (value: boolean) => void
 }
