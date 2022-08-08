@@ -32,7 +32,7 @@ const PriceCharge = () => {
     }, [])
 
     return (
-        <Box className={'mt-5 w-6/12'}>
+        <Box className={'mt-5 lg:w-7/12 sm:w-11/12'}>
             <Typography className={'text-right vazir-req text-[#8b8b8d] mb-5 text-sm'}> مبلغ شارژ</Typography>
             <Grid container spacing={1}>
                 {priceCharge.map((item, index) => (

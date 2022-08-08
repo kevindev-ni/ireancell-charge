@@ -6,7 +6,7 @@ import {useCharge} from '../../../hooks/useCharge';
 
 const SwitchToSpecial = () => {
     const {isSpecial, setSpecial} = useCharge()
-    console.log('is', isSpecial)
+
     const IOSSwitch = styled((props: SwitchProps) => (
         <Switch focusVisibleClassName=".Mui-focusVisible" disableRipple {...props} />
     ))(({ theme }) => ({
@@ -58,7 +58,7 @@ const SwitchToSpecial = () => {
         },
     }));
     return (
-        <Box onClick={() => setSpecial(!isSpecial)} className={'mt-7 mb-4 w-4/12 flex items-center'}>
+        <Box onClick={() => setSpecial(!isSpecial)} className={'mt-7 mb-4 w-6/12 flex items-center'}>
             <IOSSwitch defaultChecked={isSpecial} />
             <Typography className={'text-[#8b8b8d] mr-2 text-sm vazir-req'}>            شارز شگفت انگیز</Typography>
         </Box>

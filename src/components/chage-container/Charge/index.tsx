@@ -17,8 +17,8 @@ const Charge = () => {
             <PhoneNumber />
             <PriceCharge />
             <EmailAddress />
-            {/*email*/}
-            <Button variant={'contained'} className={'bg-primary w-6/12 mt-5 px-[20px] py-[10px] rounded-[25px]'} fullWidth>انتخاب بانک و پرداخت</Button>
+            {/*submit*/}
+            <Button variant={'contained'}  className={'bg-primary sm:w-11/12 lg:w-7/12 shadow-0 mt-5 px-[20px] py-[10px] rounded-[25px]'} fullWidth>انتخاب بانک و پرداخت</Button>
         </Box>
     );
 };
