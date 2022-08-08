@@ -18,25 +18,24 @@ const Header = () => {
         router.push('/', '/', {locale: locate})
     }
     return (
-        <AppBar className={'block'} color={"primary"} component={"nav"}>
-            <Toolbar className={'p-0 block'}>
-                <Box className={clsx('flex w-full justify-between items-center', {
-                    ['pl-5']: locate === 'FA',
-                    ['pr-5']: locate === 'EN'
-                })}>
-                    <Typography>
-                        {t('brandName')}
-                    </Typography>
-                    <Box onClick={HandleLocale}
-                         className={'bg-black h-[80px] flex items-center justify-center p-c0 m-0 w-[200px]'}>
-                        <Button startIcon={<LanguageIconIcon color={'primary'}/>} size={'small'} className={'text-sm'}>
-                            {lang}
-                        </Button>
+            <AppBar position="static" className={'bg-primary w-full'} >
+                <Toolbar className={'p-0'} variant="dense">
+                    <Box className={clsx('flex w-full justify-between items-center', {
+                        ['pl-5']: locate === 'FA',
+                        ['pr-5']: locate === 'EN'
+                    })}>
+                        <Typography>
+                            {t('brandName')}
+                        </Typography>
+                        <Box onClick={HandleLocale}
+                             className={'bg-black h-[80px] flex items-center justify-center p-0 m-0 w-[200px]'}>
+                            <Button startIcon={<LanguageIconIcon color={'primary'}/>} size={'small'} className={'text-sm'}>
+                                {lang}
+                            </Button>
+                        </Box>
                     </Box>
-                </Box>
-            </Toolbar>
-        </AppBar>
-
+                </Toolbar>
+            </AppBar>
     );
 };
 

@@ -4,7 +4,7 @@ import { styled } from '@mui/material/styles';
 import {Box, Typography} from "@mui/material";
 
 const SwitchToSpecial = () => {
-    const AntSwitch = styled(Switch)(({ theme }) => ({
+    const ChargeSpecial = styled(Switch)(({ theme }) => ({
         width: 40,
         height: 25,
         margin: 7,
@@ -48,7 +48,7 @@ const SwitchToSpecial = () => {
     }));
     return (
         <Box className={'mt-5 flex items-center'}>
-            <AntSwitch />
+            <ChargeSpecial />
             <Typography className={'text-[#8b8b8d] text-sm vazir-req'}>            شارز شگفت انگیز</Typography>
         </Box>
     )
