@@ -28,8 +28,13 @@ const PriceCharge = () => {
     }
 
     useEffect(() => {
-        setPrice(priceCharge[1].price)
-    }, [])
+        if (!isSpecial) {
+            setPrice(priceCharge[1].price)
+        } else {
+            const indexOfFirstSpecial = priceCharge.findIndex((item) => item.isSpecial)
+            handleSelectedPrice(indexOfFirstSpecial, priceCharge[indexOfFirstSpecial].price)
+        }
+    }, [isSpecial])
 
     return (
         <Box className={'mt-5 lg:w-7/12 sm:w-11/12'}>
@@ -55,12 +60,18 @@ const PriceCharge = () => {
                     </Grid>
                 ))}
                 <Grid item lg={4} xs={4} md={4} sm={4}>
-                    <button onClick={CustomPrice} className={clsx('price-chip vazir-req', {['bg-primary']: selected === null})}>
+                    <button
+                        disabled={isSpecial}
+                        onClick={CustomPrice}
+                        className={clsx('price-chip vazir-req', {
+                            ['cursor-not-allowed text-gray-400']: isSpecial,
+                            ['bg-primary']: selected === null}
+                        )}>
                         سایر مبابغ
                     </button>
                 </Grid>
             </Grid>
-            {customPrice && (
+            {customPrice && !isSpecial && (
                 <Box className={'flex flex-col items-center mt-2'}>
                     <TextField onChange={(e) => setPrice(parseInt(e.target.value))} defaultValue={price} fullWidth/>
                     <span className={'text-sm mt-4  text-center text-[#8f8f91]'}>حداقل ۱۰,۰۰۰ و حداکثر ۹۰۰,۰۰۰ ریال</span>
