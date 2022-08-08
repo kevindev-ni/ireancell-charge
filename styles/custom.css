@@ -1,6 +1,9 @@
 .bg-primary {
     background-color: #ffcc00 !important;
 }
+.text-light-gray {
+    color: #96949b !important;
+}
 html, body {
     margin: 0;
     height: 100%;
@@ -36,4 +39,10 @@ html, body {
     padding-top: 5px;
     padding-bottom: 5px;
     margin-bottom: 10px;
+}
+.cash-circle {
+    background-color: rgb(15, 175, 75);
+    width: 12.5px;
+    height: 12.5px;
+    border-radius: 50%;
 }

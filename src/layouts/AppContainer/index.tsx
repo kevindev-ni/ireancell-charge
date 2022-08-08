@@ -8,7 +8,7 @@ import clsx from "clsx";
 const AppContainer = (props: AppContainerProps) => {
     const {locale} = useRouter()
     return (
-        <Box className={clsx(' h-full w-full', {['fa-font']: locale === 'FA'}, {['en-font']: locale === 'EN'})}>
+        <Box className={clsx('h-full w-full', {['fa-font']: locale === 'FA'}, {['en-font']: locale === 'EN'})}>
             <Header/>
             {props.children}
         </Box>

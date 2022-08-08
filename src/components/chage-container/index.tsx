@@ -8,10 +8,10 @@ const Index = () => {
     const {t} = useTranslation('common')
 
     return (
-        <Box className={'h-full lg:flex md:flex items-center sm:block sm:mt-5 '}>
+        <Box className={'h-full bg-gray-100 lg:flex md:flex items-center sm:block sm:mt-5 '}>
             <Container>
-                <Card className={'shadow-charge-container rounded-[15px] '}>
-                    <CardContent>
+                <Card  className={'shadow-charge-container mx-50 rounded-[15px] '}>
+                    <CardContent className={'p-[30px]'}>
                         <Grid container>
                             <Grid item sm={12} md={7} lg={7}>
                                 <Charge />
