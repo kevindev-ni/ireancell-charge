@@ -1,5 +1,5 @@
-import React from 'react';
-import {Box, Hidden, List, ListItem, Typography} from "@mui/material";
+import React, {SetStateAction} from 'react';
+import {Box, Button, Hidden, List, ListItem, Typography} from "@mui/material";
 import NumberFormat from "react-number-format";
 import CircleIcon from "@mui/icons-material/Circle";
 import useTranslation from "next-translate/useTranslation";
@@ -9,9 +9,10 @@ type invoiceProps = {
     phoneNumber: string | null;
     price: number;
     isSpecial: boolean;
-    email: string | null
+    email: string | null,
+    setSubmit: React.Dispatch<SetStateAction<boolean>>
 };
-const MobileInvoice = ({simCardType, phoneNumber, price, isSpecial, email}: invoiceProps) => {
+const MobileInvoice = ({simCardType, phoneNumber, price, isSpecial, email, setSubmit}: invoiceProps) => {
     const {t} = useTranslation('common')
     return (
         <div>
@@ -62,7 +63,7 @@ const MobileInvoice = ({simCardType, phoneNumber, price, isSpecial, email}: invo
                 </Box>
                 <Box className={'flex'}>
                     <div>
-                        <CircleIcon  className={'text-[10px] mt-[25px] ml-1 text-[#0faf4b]'}/>
+                        <CircleIcon className={'text-[10px] mt-[25px] ml-1 text-[#0faf4b]'}/>
                     </div>
                     <div>
                         <Typography className={'text-light-gray text-[14px] vazir-req text-justify mt-5'}>
@@ -70,6 +71,10 @@ const MobileInvoice = ({simCardType, phoneNumber, price, isSpecial, email}: invo
                         </Typography>
                     </div>
                 </Box>
+                <Box className={'w-full text-center'}>
+                    <Button onClick={() => setSubmit(true)} variant={'contained'}  className={'bg-primary sm:w-11/12 md:w-9/12 lg:w-7/12 shadow-0 mt-5 px-[20px] py-[10px] rounded-[25px]'} fullWidth>{t('submitBtn')}</Button>
+                </Box>
+
             </Hidden>
         </div>
     );
