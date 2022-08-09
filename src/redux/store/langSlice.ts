@@ -19,7 +19,6 @@ export const localizationSlice = createSlice({
     initialState,
     reducers : {
         changeLang (state, action: {payload: string}) {
-            console.log('action', action.payload)
             if (action.payload === 'EN') {
                 state.lang = 'EN'
                 state.directions = 'ltr'

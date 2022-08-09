@@ -6,6 +6,7 @@ import Invoice from "./Invoice";
 import {ChargeProvider} from "../../context/ChargeContext";
 
 const Index = () => {
+    const [submit, setSubmit] = useState<boolean>(false)
     const {t} = useTranslation('common')
 
     return (
@@ -16,10 +17,10 @@ const Index = () => {
                         <CardContent className={'p-[30px]'}>
                             <Grid container>
                                 <Grid item sm={12} md={7} lg={7}>
-                                    <Charge />
+                                    <Charge isSubmit={submit}/>
                                 </Grid>
                                 <Grid item sm={12} md={5} lg={5}>
-                                    <Invoice />
+                                    <Invoice setSubmit={setSubmit}/>
                                 </Grid>
                             </Grid>
                         </CardContent>
