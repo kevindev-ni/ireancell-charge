@@ -12,11 +12,9 @@ const Charge = () => {
     const [phoneNumberValid, setPhoneNumberValid] = useState<boolean | undefined>(undefined)
     const [errorPrice, setErrorPrice] = useState<boolean | undefined>(undefined);
     const {t} = useTranslation('common')
-
-    const handleSubmit = () => {
+    const handleSubmit = (): void => {
         phoneNumberValid === undefined && setPhoneNumberValid(false)
         errorPrice === undefined && setErrorPrice(false)
-
     }
     return (
         <Box className={'flex flex-col items-center justify-center w-full'}>

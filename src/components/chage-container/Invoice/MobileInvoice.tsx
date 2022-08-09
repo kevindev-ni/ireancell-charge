@@ -16,7 +16,7 @@ const MobileInvoice = ({simCardType, phoneNumber, price, isSpecial, email}: invo
     return (
         <div>
             <Hidden mdUp>
-                <Box className={'bg-[#fff5cc] rounded-[8px] p-2 h-full'}>
+                <Box className={'bg-[#fff5cc] border-[#ffd733] border-[1px] rounded-[8px] p-2 h-full'}>
                     <Box className={'mt-1'}>
                         <List>
                             <ListItem className={'flex justify-between items-center mb-1 '}>
