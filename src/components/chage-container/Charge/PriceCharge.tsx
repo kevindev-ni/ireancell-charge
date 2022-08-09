@@ -32,12 +32,12 @@ const PriceCharge = () => {
         if (!isSpecial) {
             setPrice(priceCharge[1].price)
         } else {
-            /// find price base of special
+            /// find price base on special
             const indexOfFirstSpecial = priceCharge.findIndex((item) => item.isSpecial)
             handleSelectedPrice(indexOfFirstSpecial, priceCharge[indexOfFirstSpecial].price)
         }
         if (simCardType === 1) {
-            /// find price base of irancell logic
+            /// find price based on irancell logic
             const indexOfFirstPriceBasedOnSimType = priceCharge.findIndex((item) => item.price === 50000)
             handleSelectedPrice(indexOfFirstPriceBasedOnSimType, priceCharge[indexOfFirstPriceBasedOnSimType].price)
         }

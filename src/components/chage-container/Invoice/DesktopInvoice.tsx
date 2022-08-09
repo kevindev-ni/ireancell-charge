@@ -2,6 +2,7 @@ import React from 'react';
 import {Box, Hidden, List, ListItem, Typography} from "@mui/material";
 import NumberFormat from "react-number-format";
 import CircleIcon from "@mui/icons-material/Circle";
+import useTranslation from "next-translate/useTranslation";
 
 type invoiceProps = {
     simCardType: number | null;
@@ -11,6 +12,7 @@ type invoiceProps = {
     email: string | null
 };
 const DesktopInvoice = ({simCardType, phoneNumber, price, isSpecial, email}: invoiceProps) => {
+    const {t} = useTranslation('common')
     return (
         <div>
             <Hidden mdDown>
@@ -65,7 +67,7 @@ const DesktopInvoice = ({simCardType, phoneNumber, price, isSpecial, email}: inv
                     </div>
                     <div>
                         <Typography className={'text-light-gray text-[14px] vazir-req text-justify mt-5'}>
-                            با پرداخت از درگاه بانکی، معادل ۱ درصد از مبلغ خریدتان (بدون احتساب مالیات بر ارزش افزوده) به عنوان پاداش نقدی خرید به حساب جیب جت شما اضافه خواهد شد. شما می‌توانید از طریق سوپر اپلیکیشن ایرانسل من به حساب جیب جت خود دسترسی داشته باشید.
+                            {t('rewardText')}
                         </Typography>
                     </div>
                 </Box>
