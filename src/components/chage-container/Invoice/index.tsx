@@ -7,8 +7,8 @@ import NumberFormat from 'react-number-format';
 const Invoice = () => {
     const {simCardType, phoneNumber, isSpecial, price, email} = useCharge()
     return (
-       <Box>
-           <Box className={'bg-[#f0eff5] rounded-[8px] p-5 h-full'}>
+       <Box className={'sm:mt-5 md: mt-5'}>
+           <Box className={'bg-[#f0eff5]  rounded-[8px] p-5 h-full'}>
                <Box className={'bg-white pt-[15px] pb-[15px] rounded-[8px] fs-[16px] text-center'}>
                    فاکتور نهایی
                </Box>
