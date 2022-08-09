@@ -1,10 +1,14 @@
-import React, {useState} from 'react';
+import React, {useEffect, useState} from 'react';
 import {Box, Typography} from '@mui/material';
 import clsx from 'clsx';
 import {useCharge} from '../../../hooks/useCharge';
 
 const ChargeType = () => {
-    const {simCardType, setSimCardType} = useCharge()
+    const {simCardType, setSimCardType, setSpecial} = useCharge()
+
+    useEffect(() => {
+        simCardType === 1 && setSpecial(false)
+    } ,[simCardType])
     return (
         <Box className={'mt-5 lg:w-6/12 md:w-9/12 sm:w-7/12'}>
             <Typography className={'text-center mb-3 text-[#8b8b8d] text-sm vazir-req'}> نوع سیم کارت</Typography>
