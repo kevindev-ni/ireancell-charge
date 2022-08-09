@@ -4,18 +4,19 @@ import NumberFormat from 'react-number-format';
 import {useCharge} from "../../../hooks/useCharge";
 import clsx from "clsx";
 
+const priceCharge = [
+    {id: 1, price: 10000, isSpecial: false},
+    {id: 2, price: 20000, isSpecial: false},
+    {id: 3, price: 50000, isSpecial: true},
+    {id: 4, price: 100000, isSpecial: true},
+    {id: 5, price: 200000, isSpecial: true},
+]
+
 const PriceCharge = () => {
     const [customPrice, setCustomPrice] = useState<boolean>(false);
     const [selected, setSelected] = useState<number | null>(1)
-    const {isSpecial, setPrice, price} = useCharge()
+    const {isSpecial, setPrice, price, simCardType} = useCharge()
 
-    const priceCharge = [
-        {id: 1, price: 10000, isSpecial: false},
-        {id: 2, price: 20000, isSpecial: false},
-        {id: 3, price: 50000, isSpecial: true},
-        {id: 4, price: 100000, isSpecial: true},
-        {id: 5, price: 200000, isSpecial: true},
-    ]
     const handleSelectedPrice = (index: number, price: number) => {
         customPrice && setCustomPrice(false)
         setSelected(index)
@@ -31,10 +32,16 @@ const PriceCharge = () => {
         if (!isSpecial) {
             setPrice(priceCharge[1].price)
         } else {
+            /// find price base of special
             const indexOfFirstSpecial = priceCharge.findIndex((item) => item.isSpecial)
             handleSelectedPrice(indexOfFirstSpecial, priceCharge[indexOfFirstSpecial].price)
         }
-    }, [isSpecial])
+        if (simCardType === 1) {
+            /// find price base of irancell logic
+            const indexOfFirstPriceBasedOnSimType = priceCharge.findIndex((item) => item.price === 50000)
+            handleSelectedPrice(indexOfFirstPriceBasedOnSimType, priceCharge[indexOfFirstPriceBasedOnSimType].price)
+        }
+    }, [isSpecial, simCardType])
 
     return (
         <Box className={'mt-5 lg:w-7/12 sm:w-11/12'}>
