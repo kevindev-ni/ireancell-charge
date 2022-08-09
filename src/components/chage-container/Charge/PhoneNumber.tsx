@@ -4,15 +4,15 @@ import {useCharge} from '../../../hooks/useCharge';
 import clsx from "clsx";
 
 type PhoneNumberProps = {
-    setPhoneNumberValid: React.Dispatch<React.SetStateAction<boolean>>;
-    phoneNumberValid: boolean
+    setPhoneNumberValid: React.Dispatch<React.SetStateAction<boolean | undefined>>;
+    phoneNumberValid: boolean | undefined
 }
 
 const PhoneNumber = ({setPhoneNumberValid, phoneNumberValid} : PhoneNumberProps) => {
     const {setPhoneNumber, phoneNumber} = useCharge()
     const handlePhoneNumber = (e: ChangeEvent<HTMLInputElement>): void => {
         const phoneNumber = e.target.value
-        const isNumber = /^[0-9\b]+$/.test(phoneNumber);
+        const isNumber = /^\d+$/.test(phoneNumber);
         if (isNumber) {
             setPhoneNumberValid(true)
             setPhoneNumber(e.target.value)
@@ -26,9 +26,8 @@ const PhoneNumber = ({setPhoneNumberValid, phoneNumberValid} : PhoneNumberProps)
             onChange={handlePhoneNumber}
             value={phoneNumber}
             className={clsx('mt-5 sm:w-11/12 md:w-9/12 lg:w-7/12', {
-                ['border-danger']: !phoneNumberValid
+                ['border-danger']: phoneNumberValid === false
             })}
-            inputMode={'numeric'}
             type={'text'}
             label="شماره تلفن همراه"
             variant="outlined"/>

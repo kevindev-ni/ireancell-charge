@@ -4,7 +4,12 @@ import {useCharge} from "../../../hooks/useCharge";
 import clsx from "clsx";
 import useTranslation from "next-translate/useTranslation";
 
-const EmailAddress = ({setValidFormData, validEmail} : {setValidFormData: React.Dispatch<React.SetStateAction<boolean | undefined>>, validEmail: boolean}) => {
+
+type EmailAddressProps = {
+    setValidFormData: React.Dispatch<React.SetStateAction<boolean | undefined>>;
+    validEmail: boolean | undefined
+}
+const EmailAddress = ({setValidFormData, validEmail} : EmailAddressProps) => {
     const { setEmail } = useCharge()
     const {t} = useTranslation('common')
 
@@ -18,7 +23,7 @@ const EmailAddress = ({setValidFormData, validEmail} : {setValidFormData: React.
         <TextField
             onChange={handleValidEmail}
             className={clsx('mt-5 sm:w-11/12 md:w-9/12 lg:w-7/12', {
-                ['border-danger']: !validEmail
+                ['border-danger']: validEmail === false
             })}
             type={'email'}
             label={t('email')}

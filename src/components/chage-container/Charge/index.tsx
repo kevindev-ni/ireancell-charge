@@ -8,9 +8,10 @@ import EmailAddress from './EmailAddress';
 
 const Charge = () => {
     const [emailValid, setEmailValid] = useState<boolean | undefined>(undefined)
-    const [phoneNumberValid, setPhoneNumberValid] = useState<boolean>(true)
+    const [phoneNumberValid, setPhoneNumberValid] = useState<boolean | undefined>(undefined)
 
     const handleSubmit = () => {
+        phoneNumberValid === undefined && setPhoneNumberValid(false)
         console.log('emailValid', emailValid)
         console.log('phoneNumberValid', phoneNumberValid)
     }
