@@ -1,5 +1,12 @@
 {
   "brandName": "irancell",
   "title": "irancell shop | buy charge",
-  "description": "Irancell operator providing communication services."
+  "description": "Irancell operator providing communication services.",
+  "email" : "Email (optional)",
+  "chargePrice" : "Charge amount",
+  "currency": "IRR",
+  "otherPrice": "Other amounts",
+  "phoneNumber": "Phone number",
+  "specialCharge": "Special Charge",
+  "simType": "Sim card Type"
 }

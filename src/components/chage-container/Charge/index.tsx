@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {useState} from 'react';
 import {Box, Button, Typography} from '@mui/material';
 import SwitchToSpecial from './SwitchToSpecial';
 import PhoneNumber from './PhoneNumber';
@@ -7,16 +7,23 @@ import ChargeType from "./ChargeType";
 import EmailAddress from './EmailAddress';
 
 const Charge = () => {
+    const [emailValid, setEmailValid] = useState<boolean | undefined>(undefined)
+    const [phoneNumberValid, setPhoneNumberValid] = useState<boolean>(true)
+
+    const handleSubmit = () => {
+        console.log('emailValid', emailValid)
+        console.log('phoneNumberValid', phoneNumberValid)
+    }
     return (
         <Box className={'flex flex-col items-center justify-center w-full'}>
             <Typography variant={'h6'}>خرید آنلاین شارژ ایرانسل </Typography>
             <ChargeType />
             <SwitchToSpecial />
-            <PhoneNumber />
+            <PhoneNumber phoneNumberValid={phoneNumberValid} setPhoneNumberValid={setPhoneNumberValid}/>
             <PriceCharge />
-            <EmailAddress />
+            <EmailAddress validEmail={emailValid} setValidFormData={setEmailValid}/>
             {/*submit*/}
-            <Button variant={'contained'}  className={'bg-primary sm:w-11/12 md:w-9/12 lg:w-7/12 shadow-0 mt-5 px-[20px] py-[10px] rounded-[25px]'} fullWidth>انتخاب بانک و پرداخت</Button>
+            <Button onClick={handleSubmit} variant={'contained'}  className={'bg-primary sm:w-11/12 md:w-9/12 lg:w-7/12 shadow-0 mt-5 px-[20px] py-[10px] rounded-[25px]'} fullWidth>انتخاب بانک و پرداخت</Button>
         </Box>
     );
 };

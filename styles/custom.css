@@ -147,4 +147,9 @@ input[type="checkbox"].ios8-switch-sm:checked + label:after {
 .ios8-switch-lg:checked + label:after {
     margin-left: 20px; /* x*2 */
 }
+.border-danger {
+    border-radius: 30px;
+    border: 1px solid red;
+    border-top: 0;
+}
 
