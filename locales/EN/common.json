@@ -18,6 +18,7 @@
   "FinalInvoice": "Final invoice",
   "DirectToNumber": "Direct to number",
   "ChargeAmountVAT": "Charge amount (Including VAT)",
+  "ChargeAmountVATShort": "Charge amount (tax)",
   "CashbackReward": "Cashback Reward",
   "ChargeType": "Charge type",
   "EmailText": "Email",

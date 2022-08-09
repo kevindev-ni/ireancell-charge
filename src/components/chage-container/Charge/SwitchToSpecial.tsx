@@ -59,7 +59,7 @@ const SwitchToSpecial = () => {
         },
     }));
     return (
-        <Box onClick={() => simCardType === 0 && setSpecial(!isSpecial)} className={'mt-7 mb-4 w-6/12 flex items-center'}>
+        <Box onClick={() => simCardType === 0 && setSpecial(!isSpecial)} className={'mt-7 mb-4 w-7/12 flex items-center'}>
             <IOSSwitch disabled={simCardType === 1} defaultChecked={isSpecial} />
             <Typography className={'text-[#8b8b8d] m-2 text-sm vazir-req'}>{t('specialCharge')}</Typography>
         </Box>

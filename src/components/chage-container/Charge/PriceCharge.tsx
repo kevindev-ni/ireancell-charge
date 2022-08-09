@@ -1,9 +1,9 @@
 import React, {useEffect, useState} from 'react';
-import {Box, Grid, TextField, Typography} from "@mui/material";
+import {Box, Grid, TextField, Typography} from '@mui/material';
 import NumberFormat from 'react-number-format';
-import {useCharge} from "../../../hooks/useCharge";
-import clsx from "clsx";
-import useTranslation from "next-translate/useTranslation";
+import {useCharge} from '../../../hooks/useCharge';
+import clsx from 'clsx';
+import useTranslation from 'next-translate/useTranslation';
 
 const priceCharge = [
     {id: 1, price: 10000, isSpecial: false},
@@ -13,7 +13,13 @@ const priceCharge = [
     {id: 5, price: 200000, isSpecial: true},
 ]
 
-const PriceCharge = () => {
+
+type PriceChargeProps = {
+    setErrorPrice: React.Dispatch<React.SetStateAction<boolean | undefined>>;
+    errorPrice: boolean | undefined
+}
+
+const PriceCharge = ({errorPrice, setErrorPrice}: PriceChargeProps) => {
     const [customPrice, setCustomPrice] = useState<boolean>(false);
     const [selected, setSelected] = useState<number | null>(1)
     const {isSpecial, setPrice, price, simCardType} = useCharge()
@@ -25,9 +31,21 @@ const PriceCharge = () => {
         setPrice(price)
     }
 
-    const CustomPrice = () => {
+    const HandleInputCustomPrice = () => {
         setCustomPrice(!customPrice)
         setSelected(null)
+        ValidatePrice(price)
+    }
+    const handleChangePrice = (e:React.ChangeEvent<HTMLInputElement>) => {
+        const price = parseInt(e.target.value)
+        ValidatePrice(price)
+    }
+    const ValidatePrice = (priceEntries: number) => {
+        if (priceEntries >= 10000 && priceEntries <= 900000) {
+            setPrice(priceEntries)
+            setErrorPrice(true)
+        }
+        setErrorPrice(false)
     }
 
     useEffect(() => {
@@ -71,7 +89,7 @@ const PriceCharge = () => {
                 <Grid item lg={4} xs={4} md={4} sm={4}>
                     <button
                         disabled={isSpecial}
-                        onClick={CustomPrice}
+                        onClick={HandleInputCustomPrice}
                         className={clsx('price-chip vazir-req', {
                             ['cursor-not-allowed text-gray-400']: isSpecial,
                             ['bg-primary']: selected === null}
@@ -82,8 +100,10 @@ const PriceCharge = () => {
             </Grid>
             {customPrice && !isSpecial && (
                 <Box className={'flex flex-col items-center mt-2'}>
-                    <TextField onChange={(e) => setPrice(parseInt(e.target.value))} defaultValue={price} fullWidth/>
-                    <span className={'text-sm mt-4  text-center text-[#8f8f91]'}>{t('customPriceText')}</span>
+                    <TextField type={'number'} onChange={handleChangePrice} defaultValue={price} fullWidth/>
+                    <span className={clsx('text-sm mt-4 text-center text-[#8f8f91]', {
+                        ['bg-red-200 w-full py-2 rounded-[20px]'] : errorPrice === false
+                    })}>{t('customPriceText')}</span>
                 </Box>
             )}
         </Box>

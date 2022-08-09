@@ -40,11 +40,14 @@ const DesktopInvoice = ({simCardType, phoneNumber, price, isSpecial, email}: inv
                                         displayType={'text'}
                                         value={price + price * 9 /100}
                                     />
+                                    {' '}
+                                    {t('currency')}
                                 </Typography>
                             </ListItem>
                             <ListItem className={'flex flex-col items-start mb-3 mr-3'}>
                                 <Typography className={'text-[14px] vazir-req text-light-gray text-light'}>{t('CashbackReward')}   </Typography>
-                                <Typography className={'mt-3 '}> { price / 100}  </Typography>
+                                <Typography className={'mt-3'}> { price / 100}{' '}{t('currency')}
+                                </Typography>
                             </ListItem>
                             <ListItem className={'flex flex-col items-start mb-3 mr-3'}>
                                 <Typography className={'text-[14px] vazir-req text-light-gray text-light'}> {t('ChargeType')} </Typography>
@@ -56,7 +59,7 @@ const DesktopInvoice = ({simCardType, phoneNumber, price, isSpecial, email}: inv
                             </ListItem>
                             <ListItem className={'flex flex-col items-start mr-3'}>
                                 <Typography className={'text-[14px] vazir-req text-light-gray text-light'}> {t('BankName')}   </Typography>
-                                <Typography className={'mt-3'}> اعتباری  </Typography>
+                                <Typography className={'mt-3'}> ---  </Typography>
                             </ListItem>
                         </List>
                     </Box>

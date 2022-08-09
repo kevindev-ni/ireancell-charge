@@ -30,18 +30,20 @@ const MobileInvoice = ({simCardType, phoneNumber, price, isSpecial, email}: invo
                                 <Typography>  {phoneNumber === null ? '---' : phoneNumber} </Typography>
                             </ListItem>
                             <ListItem className={'flex justify-between items-center mb-1 '}>
-                                <Typography className={'text-[14px] vazir-req text-light-gray text-light'}>{t('ChargeAmountVAT')}</Typography>
+                                <Typography className={'text-[14px] vazir-req text-light-gray text-light'}>{t('ChargeAmountVATShort')}</Typography>
                                 <Typography>
                                     <NumberFormat
                                         thousandSeparator={true}
                                         displayType={'text'}
                                         value={price + price * 9 /100}
                                     />
+                                    {' '}
+                                    {t('currency')}
                                 </Typography>
                             </ListItem>
                             <ListItem className={'flex justify-between items-center mb-1 '}>
                                 <Typography className={'text-[14px] vazir-req text-light-gray text-light'}> {t('CashbackReward')}  </Typography>
-                                <Typography> { price / 100}  </Typography>
+                                <Typography> { price / 100} {' '}  {t('currency')} </Typography>
                             </ListItem>
                             <ListItem className={'flex justify-between items-center mb-1 '}>
                                 <Typography className={'text-[14px] vazir-req text-light-gray text-light'}> {t('ChargeType')} </Typography>
@@ -53,7 +55,7 @@ const MobileInvoice = ({simCardType, phoneNumber, price, isSpecial, email}: invo
                             </ListItem>
                             <ListItem className={'flex justify-between items-center mb-1 '}>
                                 <Typography className={'text-[14px] vazir-req text-light-gray text-light'}> {t('BankName')}   </Typography>
-                                <Typography> اعتباری  </Typography>
+                                <Typography> ---  </Typography>
                             </ListItem>
                         </List>
                     </Box>
