@@ -1,55 +1,67 @@
 import React from 'react';
 import Switch, { SwitchProps } from '@mui/material/Switch';
 import { styled } from '@mui/material/styles';
-import {Box, Typography} from "@mui/material";
+import {Box, Typography} from '@mui/material';
+import {useCharge} from '../../../hooks/useCharge';
+import useTranslation from "next-translate/useTranslation";
 
 const SwitchToSpecial = () => {
-    const ChargeSpecial = styled(Switch)(({ theme }) => ({
-        width: 40,
-        height: 25,
-        margin: 7,
+    const {isSpecial, setSpecial, simCardType} = useCharge()
+    const {t} = useTranslation('common')
+    const IOSSwitch = styled((props: SwitchProps) => (
+        <Switch focusVisibleClassName=".Mui-focusVisible" disableRipple {...props} />
+    ))(({ theme }) => ({
+        width: 37,
+        height: 22,
         padding: 0,
-        display: 'flex',
-        '&:active': {
-            '& .MuiSwitch-thumb': {
-                width: 38,
-            },
-            '& .MuiSwitch-switchBase.Mui-checked': {
-                transform: 'translateX(9px)',
-            },
-        },
         '& .MuiSwitch-switchBase': {
-            padding: 2,
+            padding: 0,
+            margin: 2,
+            transitionDuration: '300ms',
             '&.Mui-checked': {
-                transform: 'translateX(12px)',
+                transform: 'translateX(16px)',
                 color: '#fff',
                 '& + .MuiSwitch-track': {
+                    backgroundColor: '#888',
                     opacity: 1,
-                    backgroundColor: theme.palette.secondary.main,
+                    border: 0,
                 },
+                '&.Mui-disabled + .MuiSwitch-track': {
+                    opacity: 0.5,
+                },
+            },
+            '&.Mui-focusVisible .MuiSwitch-thumb': {
+                color: '#33cf4d',
+                border: '6px solid #fff',
+            },
+            '&.Mui-disabled .MuiSwitch-thumb': {
+                color:
+                    theme.palette.mode === 'light'
+                        ? theme.palette.grey[100]
+                        : theme.palette.grey[600],
+            },
+            '&.Mui-disabled + .MuiSwitch-track': {
+                opacity: theme.palette.mode === 'light' ? 0.7 : 0.3,
             },
         },
         '& .MuiSwitch-thumb': {
-            boxShadow: '0 2px 4px 0 rgb(0 35 11 / 20%)',
-            width: 20,
-            height: 20,
-            borderRadius: 20,
-            transition: theme.transitions.create(['width'], {
-                duration: 200,
-            }),
+            boxSizing: 'border-box',
+            width: 18,
+            height: 18,
         },
         '& .MuiSwitch-track': {
-            borderRadius: 20,
+            borderRadius: 26 / 2,
+            backgroundColor: theme.palette.mode === 'light' ? '#E9E9EA' : '#39393D',
             opacity: 1,
-            backgroundColor:
-                theme.palette.mode === 'dark' ? 'rgba(255,255,255,.35)' : 'rgba(0,0,0,.25)',
-            boxSizing: 'border-box',
+            transition: theme.transitions.create(['background-color'], {
+                duration: 500,
+            }),
         },
     }));
     return (
-        <Box className={'mt-5 flex items-center'}>
-            <ChargeSpecial />
-            <Typography className={'text-[#8b8b8d] text-sm vazir-req'}>            شارز شگفت انگیز</Typography>
+        <Box onClick={() => simCardType === 0 && setSpecial(!isSpecial)} className={'mt-7 mb-4 w-7/12 flex items-center'}>
+            <IOSSwitch disabled={simCardType === 1} defaultChecked={isSpecial} />
+            <Typography className={'text-[#8b8b8d] m-2 text-sm vazir-req'}>{t('specialCharge')}</Typography>
         </Box>
     )
 };

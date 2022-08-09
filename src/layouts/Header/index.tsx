@@ -18,7 +18,7 @@ const Header = () => {
         router.push('/', '/', {locale: locate})
     }
     return (
-            <AppBar position="static" className={'bg-primary w-full'} >
+            <div className={'bg-primary  w-full'} >
                 <Toolbar className={'p-0'} variant="dense">
                     <Box className={clsx('flex w-full justify-between items-center', {
                         ['pl-5']: locate === 'FA',
@@ -35,7 +35,7 @@ const Header = () => {
                         </Box>
                     </Box>
                 </Toolbar>
-            </AppBar>
+            </div>
     );
 };
 

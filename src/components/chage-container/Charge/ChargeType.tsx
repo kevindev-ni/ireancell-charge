@@ -1,27 +1,33 @@
-import React, {useState} from 'react';
+import React, {useEffect} from 'react';
 import {Box, Typography} from '@mui/material';
 import clsx from 'clsx';
+import {useCharge} from '../../../hooks/useCharge';
+import useTranslation from "next-translate/useTranslation";
 
 const ChargeType = () => {
-    const [simType, setSimType] = useState<number>(0)
+    const {simCardType, setSimCardType, setSpecial} = useCharge()
+    const {t} = useTranslation('common')
 
+    useEffect(() => {
+        simCardType === 1 && setSpecial(false)
+    } ,[simCardType])
     return (
-        <Box className={'mt-5 w-4/12'}>
-            <Typography className={'text-center mb-2 text-[#8b8b8d] text-sm vazir-req'}> نوع سیم کارت</Typography>
+        <Box className={'mt-5 lg:w-6/12 md:w-9/12 sm:w-7/12'}>
+            <Typography className={'text-center mb-3 text-[#8b8b8d] text-sm vazir-req'}>{t('simType')}</Typography>
             <Box className={'flex justify-between items-center  border-[1px] rounded-[25px] border-[#e6e6e8]'}>
                 <button
-                    onClick={() => setSimType(0)}
+                    onClick={() => setSimCardType(0)}
                     className={clsx('text-center w-full px-[7px] py-[7px] ',
-                        {['rounded-[25px] bg-primary p-1 ']: simType === 0})}
+                        {['rounded-[25px] bg-primary p-1 ']: simCardType === 0})}
                 >
-                    اعتباری
+                    {t('prepaid')}
                 </button>
                 <button
-                    onClick={() => setSimType(1)}
+                    onClick={() => setSimCardType(1)}
                     className={clsx('text-center w-full px-[7px] py-[7px] ',
-                        {['rounded-[25px] bg-primary p-1']: simType === 1})}
+                        {['rounded-[25px] bg-primary p-1']: simCardType === 1})}
                 >
-                    دائمی
+                    {t('postpaid')}
                 </button>
             </Box>
         </Box>
