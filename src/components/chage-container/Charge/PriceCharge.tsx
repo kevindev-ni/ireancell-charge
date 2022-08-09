@@ -3,6 +3,7 @@ import {Box, Grid, TextField, Typography} from "@mui/material";
 import NumberFormat from 'react-number-format';
 import {useCharge} from "../../../hooks/useCharge";
 import clsx from "clsx";
+import useTranslation from "next-translate/useTranslation";
 
 const priceCharge = [
     {id: 1, price: 10000, isSpecial: false},
@@ -16,6 +17,7 @@ const PriceCharge = () => {
     const [customPrice, setCustomPrice] = useState<boolean>(false);
     const [selected, setSelected] = useState<number | null>(1)
     const {isSpecial, setPrice, price, simCardType} = useCharge()
+    const {t} = useTranslation('common')
 
     const handleSelectedPrice = (index: number, price: number) => {
         customPrice && setCustomPrice(false)
@@ -45,7 +47,7 @@ const PriceCharge = () => {
 
     return (
         <Box className={'mt-5 lg:w-7/12 sm:w-11/12'}>
-            <Typography className={'text-right vazir-req text-[#8b8b8d] mb-5 text-sm'}> مبلغ شارژ</Typography>
+            <Typography className={' vazir-req text-[#8b8b8d] mb-5 text-sm'}>  {t('ChargeAmount')}</Typography>
             <Grid container spacing={1}>
                 {priceCharge.map((item, index) => (
                     <Grid key={index} item lg={4} xs={4} md={4} sm={4}>
@@ -62,7 +64,7 @@ const PriceCharge = () => {
                                 displayType={'text'}
                                 value={item.price}
                             />
-                            <span className={'m-1 text-sm vazir-req !font-light'}>ریال</span>
+                            <span className={'m-1 text-sm vazir-req !font-light'}>{t('currency')}</span>
                         </button>
                     </Grid>
                 ))}
@@ -74,14 +76,14 @@ const PriceCharge = () => {
                             ['cursor-not-allowed text-gray-400']: isSpecial,
                             ['bg-primary']: selected === null}
                         )}>
-                        سایر مبابغ
+                        {t('otherPrice')}
                     </button>
                 </Grid>
             </Grid>
             {customPrice && !isSpecial && (
                 <Box className={'flex flex-col items-center mt-2'}>
                     <TextField onChange={(e) => setPrice(parseInt(e.target.value))} defaultValue={price} fullWidth/>
-                    <span className={'text-sm mt-4  text-center text-[#8f8f91]'}>حداقل ۱۰,۰۰۰ و حداکثر ۹۰۰,۰۰۰ ریال</span>
+                    <span className={'text-sm mt-4  text-center text-[#8f8f91]'}>{t('customPriceText')}</span>
                 </Box>
             )}
         </Box>

@@ -1,7 +1,7 @@
 {
   "brandName": "irancell",
   "title": "irancell shop | buy charge",
-  "buCharge": "Irancell E-Charge",
+  "eChargeText": "Irancell E-Charge",
   "description": "Irancell operator providing communication services.",
   "email" : "Email (optional)",
   "chargePrice" : "Charge amount",
@@ -9,9 +9,10 @@
   "otherPrice": "other",
   "phoneNumber": "Phone number",
   "specialCharge": "Wow recharge",
+  "normalCharge": "Normal",
   "simType": "SIM card type",
-  "prepaid": "prepaid",
-  "postpaid": "postpaid",
+  "prepaid": "Prepaid",
+  "postpaid": "Postpaid",
   "ChargeAmount": "Charge amount",
   "submitBtn": "Select bank & make payment",
   "FinalInvoice": "Final invoice",
@@ -21,6 +22,7 @@
   "ChargeType": "Charge type",
   "EmailText": "Email",
   "BankName": "Bank name",
+  "customPriceText": "Minimum 10,000 and maximum 900,000 rials",
   "rewardText": "An additional 1% of the amount that you pay (excl. VAT) will be deposited in your Jibjet account as a free cashback reward. Your Jibjet can be accessed through the MyIrancell Superapp.\n\n"
 
 }

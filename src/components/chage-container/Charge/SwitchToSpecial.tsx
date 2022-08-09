@@ -3,10 +3,11 @@ import Switch, { SwitchProps } from '@mui/material/Switch';
 import { styled } from '@mui/material/styles';
 import {Box, Typography} from '@mui/material';
 import {useCharge} from '../../../hooks/useCharge';
+import useTranslation from "next-translate/useTranslation";
 
 const SwitchToSpecial = () => {
     const {isSpecial, setSpecial, simCardType} = useCharge()
-
+    const {t} = useTranslation('common')
     const IOSSwitch = styled((props: SwitchProps) => (
         <Switch focusVisibleClassName=".Mui-focusVisible" disableRipple {...props} />
     ))(({ theme }) => ({
@@ -60,7 +61,7 @@ const SwitchToSpecial = () => {
     return (
         <Box onClick={() => simCardType === 0 && setSpecial(!isSpecial)} className={'mt-7 mb-4 w-6/12 flex items-center'}>
             <IOSSwitch disabled={simCardType === 1} defaultChecked={isSpecial} />
-            <Typography className={'text-[#8b8b8d] mr-2 text-sm vazir-req'}>   شارز شگفت انگیز</Typography>
+            <Typography className={'text-[#8b8b8d] m-2 text-sm vazir-req'}>{t('specialCharge')}</Typography>
         </Box>
     )
 };

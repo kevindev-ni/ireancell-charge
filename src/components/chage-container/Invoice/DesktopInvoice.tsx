@@ -18,22 +18,22 @@ const DesktopInvoice = ({simCardType, phoneNumber, price, isSpecial, email}: inv
             <Hidden mdDown>
                 <Box className={'bg-[#f0eff5]  rounded-[8px] p-5 h-full'}>
                     <Box className={'bg-white pt-[15px] pb-[15px] rounded-[8px] fs-[16px] text-center'}>
-                        فاکتور نهایی
+                        {t('FinalInvoice')}
                     </Box>
                     <Box className={'mt-3 leading-9'}>
                         <List>
                             <ListItem className={'flex flex-col items-start mb-3 mr-3'}>
-                                <Typography className={'text-[14px] vazir-req text-light-gray text-light'}>نوع سیم کارت </Typography>
+                                <Typography className={'text-[14px] vazir-req text-light-gray text-light'}>{t('simType')} </Typography>
                                 <Typography className={'mt-3 '}>
-                                    {simCardType === 0 ? 'اعتباری' : 'دائمی'}
+                                    {simCardType === 0 ? t('prepaid') : t('postpaid')}
                                 </Typography>
                             </ListItem>
                             <ListItem className={'flex flex-col items-start mb-3 mr-3'}>
-                                <Typography className={'text-[14px] vazir-req text-light-gray text-light'}>مستقیم به شماره </Typography>
+                                <Typography className={'text-[14px] vazir-req text-light-gray text-light'}>{t('DirectToNumber')} </Typography>
                                 <Typography className={'mt-3'}>  {phoneNumber === null ? '---' : phoneNumber} </Typography>
                             </ListItem>
                             <ListItem className={'flex flex-col items-start mb-3 mr-3'}>
-                                <Typography className={'text-[14px] vazir-req text-light-gray text-light'}>مبلغ شارژ (با احتساب مالیات بر ارزش افزوده)</Typography>
+                                <Typography className={'text-[14px] vazir-req text-light-gray text-light'}>{t('ChargeAmountVAT')}</Typography>
                                 <Typography className={'mt-3'}>
                                     <NumberFormat
                                         thousandSeparator={true}
@@ -43,19 +43,19 @@ const DesktopInvoice = ({simCardType, phoneNumber, price, isSpecial, email}: inv
                                 </Typography>
                             </ListItem>
                             <ListItem className={'flex flex-col items-start mb-3 mr-3'}>
-                                <Typography className={'text-[14px] vazir-req text-light-gray text-light'}>پاداش خرید  </Typography>
+                                <Typography className={'text-[14px] vazir-req text-light-gray text-light'}>{t('CashbackReward')}   </Typography>
                                 <Typography className={'mt-3 '}> { price / 100}  </Typography>
                             </ListItem>
                             <ListItem className={'flex flex-col items-start mb-3 mr-3'}>
-                                <Typography className={'text-[14px] vazir-req text-light-gray text-light'}> نوع شارژ  </Typography>
-                                <Typography className={'mt-3'}> {isSpecial ? 'شگفت انگیز' : 'معمولی'}  </Typography>
+                                <Typography className={'text-[14px] vazir-req text-light-gray text-light'}> {t('ChargeType')} </Typography>
+                                <Typography className={'mt-3'}> {isSpecial ? t('specialCharge') : t('normalCharge')}  </Typography>
                             </ListItem>
                             <ListItem className={'flex flex-col items-start mb-3 mr-3'}>
-                                <Typography className={'text-[14px] vazir-req text-light-gray text-light'}> ایمیل   </Typography>
+                                <Typography className={'text-[14px] vazir-req text-light-gray text-light'}> {t('EmailText')}    </Typography>
                                 <Typography className={'mt-3'}>{email}</Typography>
                             </ListItem>
                             <ListItem className={'flex flex-col items-start mr-3'}>
-                                <Typography className={'text-[14px] vazir-req text-light-gray text-light'}> نام بامک   </Typography>
+                                <Typography className={'text-[14px] vazir-req text-light-gray text-light'}> {t('BankName')}   </Typography>
                                 <Typography className={'mt-3'}> اعتباری  </Typography>
                             </ListItem>
                         </List>

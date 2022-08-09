@@ -2,6 +2,7 @@ import React, {ChangeEvent} from 'react';
 import { TextField } from '@mui/material';
 import {useCharge} from '../../../hooks/useCharge';
 import clsx from "clsx";
+import useTranslation from "next-translate/useTranslation";
 
 type PhoneNumberProps = {
     setPhoneNumberValid: React.Dispatch<React.SetStateAction<boolean | undefined>>;
@@ -10,6 +11,7 @@ type PhoneNumberProps = {
 
 const PhoneNumber = ({setPhoneNumberValid, phoneNumberValid} : PhoneNumberProps) => {
     const {setPhoneNumber, phoneNumber} = useCharge()
+    const {t} = useTranslation('common')
     const handlePhoneNumber = (e: ChangeEvent<HTMLInputElement>): void => {
         const phoneNumber = e.target.value
         const isNumber = /^\d+$/.test(phoneNumber);
@@ -29,7 +31,7 @@ const PhoneNumber = ({setPhoneNumberValid, phoneNumberValid} : PhoneNumberProps)
                 ['border-danger']: phoneNumberValid === false
             })}
             type={'text'}
-            label="شماره تلفن همراه"
+            label={t('phoneNumber')}
             variant="outlined"/>
     );
 };

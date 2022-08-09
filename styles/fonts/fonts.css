@@ -6,6 +6,10 @@
     font-family: Vazir-req;
     src: url('Vazir-Regular-FD.ttf');
 }
+@font-face {
+    font-family: PoppinsBold;
+    src: url('Poppins-SemiBold.ttf');
+}
 .vazir-bold {
     font-family: Vazir-Bold;
 }
@@ -16,5 +20,5 @@
     font-family: Vazir-Bold;
 }
 .en-font * {
-    font-family: Righteous !important;
+    font-family: PoppinsBold !important;
 }
