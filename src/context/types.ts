@@ -3,7 +3,7 @@ export type ChargeValuesType = {
     setSimCardType: (value: number) => void
     chargeType: number | null,
     setChargeType: (value: number) => void
-    phoneNumber: string | null,
+    phoneNumber: string,
     setPhoneNumber: (value: string) => void
     price: number,
     setPrice: (value: number) => void
