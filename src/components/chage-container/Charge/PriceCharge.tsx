@@ -45,7 +45,9 @@ const PriceCharge = ({errorPrice, setErrorPrice}: PriceChargeProps) => {
             setPrice(priceEntries)
             setErrorPrice(true)
         }
-        setErrorPrice(false)
+        else {
+            setErrorPrice(false)
+        }
     }
 
     useEffect(() => {
