@@ -10,7 +10,7 @@ const Index = () => {
 
     return (
         <ChargeProvider>
-            <Box className={'h-full m flex mt-32  mb-32 md:block items-center sm:block sm:mt-5'}>
+            <Box className={'h-full flex mt-32 mb-32 md:block items-center sm:block sm:mt-5'}>
                 <Container>
                     <Card className={'shadow-charge-container mb-5 mx-50 rounded-[15px] '}>
                         <CardContent className={'p-[30px]'}>
